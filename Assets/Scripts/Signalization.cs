@@ -8,6 +8,13 @@ public class Signalization : MonoBehaviour
     [SerializeField] private float _timeTurnVolume;
 
     private AudioSource _audioSource;
+    private Coroutine runCoroutine;
+
+    private void Start()
+    {
+        _audioSource = GetComponent<AudioSource>();
+        _audioSource.volume = 0;
+    }
 
     public void PlayAudio()
     {
@@ -24,19 +31,13 @@ public class Signalization : MonoBehaviour
         {
             PlayAudio();
             _audioSource.loop = true;
-            StartCoroutine(ChangeVolume(1));
+            RunChangeVolume(StartCoroutine(ChangeVolume(1)));
         }
         else
         {
-            StartCoroutine(ChangeVolume(0));
+            RunChangeVolume(StartCoroutine(ChangeVolume(0)));
             _audioSource.loop = false;
         }
-    }
-
-    private void Start()
-    {
-        _audioSource = GetComponent<AudioSource>();
-        _audioSource.volume = 0;
     }
 
     private IEnumerator ChangeVolume(int target)
@@ -47,4 +48,12 @@ public class Signalization : MonoBehaviour
             yield return null;
         }
     }
+
+    private void RunChangeVolume(Coroutine coroutine)
+    {
+        if(runCoroutine != null)
+            StopCoroutine(runCoroutine);
+        runCoroutine = coroutine;
+    }
+    
 }

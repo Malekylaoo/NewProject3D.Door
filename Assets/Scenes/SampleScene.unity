@@ -584,6 +584,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1518194964, guid: 4f136f781a10d764f872d3ba43b405b3, type: 3}
+      propertyPath: _timeTurnVolume
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2253936910175633371, guid: 4f136f781a10d764f872d3ba43b405b3, type: 3}
       propertyPath: m_RootOrder
       value: 2

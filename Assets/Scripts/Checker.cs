@@ -13,13 +13,13 @@ public class Checker : MonoBehaviour
     private void OnTriggerEnter()
     {
         isEntered = true;
-        _signalization.SignalizationOn(isEntered, isDoorOpened);
+        DoorOpening(isDoorOpened);
     }
 
     private void OnTriggerExit()
     {
         isEntered = false;
-        _signalization.SignalizationOn(isEntered, isDoorOpened);
+        DoorOpening(isDoorOpened);
     }
 
     private void OnEnable()

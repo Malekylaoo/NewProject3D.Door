@@ -10,15 +10,15 @@ public class Door : MonoBehaviour
     private bool _isOpened = false;
     public event UnityAction<bool> DoorOpened;
 
+    private void Start()
+    {
+        _doorAnimation = GetComponent<DoorAnimation>();
+    }
+
     public void Open()
     {
         _isOpened = !_isOpened;
         DoorOpened?.Invoke(_isOpened);
         _doorAnimation.ChangeAnimation(_isOpened);
-    }
-
-    private void Start()
-    {
-        _doorAnimation = GetComponent<DoorAnimation>();
-    }
+    }  
 }
