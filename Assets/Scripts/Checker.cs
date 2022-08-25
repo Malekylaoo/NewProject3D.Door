@@ -7,34 +7,34 @@ public class Checker : MonoBehaviour
     [SerializeField] private Door _door;
     [SerializeField] private Signalization _signalization;
 
-    private bool isEntered;
-    private bool isDoorOpened;
+    private bool _isEntered;
+    private bool _isDoorOpened;
 
     private void OnTriggerEnter()
     {
-        isEntered = true;
-        DoorOpening(isDoorOpened);
+        _isEntered = true;
+        OnDoorOpened(_isDoorOpened);
     }
 
     private void OnTriggerExit()
     {
-        isEntered = false;
-        DoorOpening(isDoorOpened);
+        _isEntered = false;
+        OnDoorOpened(_isDoorOpened);
     }
 
     private void OnEnable()
     {
-        _door.DoorOpened += DoorOpening;
+        _door.DoorOpened += OnDoorOpened;
     }
 
     private void OnDisable()
     {
-        _door.DoorOpened -= DoorOpening;
+        _door.DoorOpened -= OnDoorOpened;
     }
 
-    private void DoorOpening(bool isOpened)
+    private void OnDoorOpened(bool isOpened)
     {
-        isDoorOpened = isOpened;
-        _signalization.SignalizationOn(isEntered, isDoorOpened);
+        _isDoorOpened = isOpened;
+        _signalization.SignalizationOn(_isEntered, _isDoorOpened);
     }
 }

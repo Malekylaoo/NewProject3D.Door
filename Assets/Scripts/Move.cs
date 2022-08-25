@@ -10,10 +10,10 @@ public class Move : MonoBehaviour
 
     private void Update()
     {
-        Mover(SelectSpeed());
+        GetGoing(SelectSpeed());
     }
 
-    private void Mover(float localSpeed)
+    private void GetGoing(float localSpeed)
     {
         if (Input.GetKey(KeyCode.W))
         {

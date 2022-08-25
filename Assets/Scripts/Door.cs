@@ -15,7 +15,7 @@ public class Door : MonoBehaviour
         _doorAnimation = GetComponent<DoorAnimation>();
     }
 
-    public void Open()
+    public void ChangeState()
     {
         _isOpened = !_isOpened;
         DoorOpened?.Invoke(_isOpened);

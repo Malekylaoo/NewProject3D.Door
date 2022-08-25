@@ -12,12 +12,12 @@ public class Interactive : MonoBehaviour
 
     private void Update()
     {
-        Ray();
+        CreateRay();
         DrawRay();
         Interact();
     }
 
-    private void Ray()
+    private void CreateRay()
     {
         _ray = _fpcCamera.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
     }
@@ -42,7 +42,7 @@ public class Interactive : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 Debug.Log("Я нажал!");
-                door.Open();
+                door.ChangeState();
             }
         }
     }
