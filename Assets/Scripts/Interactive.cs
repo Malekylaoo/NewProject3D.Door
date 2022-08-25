@@ -41,7 +41,6 @@ public class Interactive : MonoBehaviour
             Debug.DrawRay(_ray.origin, _ray.direction * _maxDistanceRay, Color.green);
             if (Input.GetKeyDown(KeyCode.E))
             {
-                Debug.Log("Я нажал!");
                 door.ChangeState();
             }
         }

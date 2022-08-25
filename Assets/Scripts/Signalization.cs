@@ -18,7 +18,6 @@ public class Signalization : MonoBehaviour
 
     public void PlayAudio()
     {
-        Debug.Log("Я дошел до PlayAudio");
         if (!_audioSource.isPlaying)
         {
             _audioSource.Play();

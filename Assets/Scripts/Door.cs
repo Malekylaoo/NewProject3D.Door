@@ -8,6 +8,7 @@ public class Door : MonoBehaviour
 {
     private DoorAnimation _doorAnimation;
     private bool _isOpened = false;
+
     public event UnityAction<bool> DoorOpened;
 
     private void Start()
